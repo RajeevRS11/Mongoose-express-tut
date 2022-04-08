@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%=product.name%></title>
+  </head>
+  <style>
+    .btn {
+      color: white;
+      border-radius: 5px;
+      border: none;
+      padding: 10px;
+    }
+    .primary {
+      background-color: #6262fa;
+    }
+    .danger {
+      background-color: #b81108;
+    }
+    .success {
+      background-color: #047e0a;
+    }
+  </style>
+  <body>
+    <h2>Name: <%=product.name%></h2>
+    <ul>
+      <li><strong>Price:</strong> RS <%=product.price%></li>
+      <li><strong>Category:</strong> <%=product.category%></li>
+    </ul>
+
+    <br />
+    <div
+      style="
+        display: flex;
+        margin: 10px;
+        width: 200px;
+        justify-content: space-between;
+      "
+    >
+      <form action="/products">
+        <button class="btn primary">Home</button>
+      </form>
+
+      <form action="/products/<%=product.id%>/edit">
+        <button class="btn success">Edit</button>
+      </form>
+
+      <form action="/products/<%=product._id%>?_method=DELETE" method="POST">
+        <button class="btn danger">Delete</button>
+      </form>
+    </div>
+  </body>
+</html>
